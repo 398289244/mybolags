@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogs.mydlogsdemo.dao.BackAddArticleImput">
+        <insert id="addArticle" parameterType="com.blogs.mydlogsdemo.domain.Article">
+ INSERT INTO article(headline,content,keyword,describess,classes,label,homeimg,conditionss,creationtime,views)
+VALUE(#{headline},#{content},#{keyword},#{describess},#{classes},#{label},#{homeimg},#{conditionss},#{creationtime},#{views})
+        </insert>
+
+    <select id="getTingData" resultType="com.blogs.mydlogsdemo.domain.Article">
+        SELECT aid,headline,describess,classes, homeimg,creationtime,views FROM article LIMIT 10
+    </select>
+    <select id="getArtileData" resultType="com.blogs.mydlogsdemo.domain.Article">
+        SELECT aid,headline,classes,label,creationtime FROM article
+    </select>
+    <select id="getClasses" parameterType="com.blogs.mydlogsdemo.domain.Article" resultType="String" >
+        SELECT cname FROM classes WHERE cid=#{classes}
+    </select>
+
+</mapper>

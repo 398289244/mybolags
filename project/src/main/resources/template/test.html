@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="frontdesk/js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+
+    <div id="ssru" name="fuwenb">
+        欢迎使用富文本
+    </div>
+<div id="tjiao"><button  type="button"> 提交</button></div>
+
+</body>
+<script type="text/javascript" src="backstage/js/wangEditor.js"></script>
+<script type="text/javascript">
+    var E = window.wangEditor;
+    var editor = new E('#ssru');
+    editor.customConfig.debug = true;
+    // 关闭粘贴内容中的样式
+    editor.customConfig.pasteFilterStyle = false
+    // 忽略粘贴内容中的图片
+    editor.customConfig.pasteIgnoreImg = true
+    // 或者 var editor = new E( document.getElementById('editor') )
+    editor.customConfig.uploadImgShowBase64 = true ;  //允许可以插入图片
+
+    editor.create()
+</script>
+<script>
+    $("#tjiao").click(function () {
+
+        alert(editor.txt.html());
+    })
+
+</script>
+</html>

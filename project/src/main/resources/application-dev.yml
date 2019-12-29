@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/blogs?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: han110
+#  freemarker:
+#    cache: false
+#    template-loader-path: classpath:/template
+#    charset: UTF-8
+#    expose-session-attributes: true
+#    expose-request-attributes: true
+#    expose-spring-macro-helpers: true
+#    suffix: .html
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+    prefix: classpath:/template/
+    suffix: .html
+
+
+
+mybatis:
+  type-aliases-package: com.blogs.mydlogsdemo.domain
+  mapper-locations: classpath:mappers/*.xml
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+

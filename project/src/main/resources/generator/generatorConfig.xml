@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <classPathEntry location="C:\WorkSpaces\jar\mysql-connector-java-5.1.47.jar"/>
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <commentGenerator>
+      <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+      <property name="javaFileEncoding" value="UTF-8"/>
+      <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+    <!-- 数据库配置信息 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://localhost:3306/blogs?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC"
+                    userId="root"
+                    password="han110"/>
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+    <!-- 实体类 -->
+    <javaModelGenerator targetPackage="com.blogs.mydlogsdemo.domain"
+                        targetProject="src\main\java">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    <!-- mapper -->
+    <sqlMapGenerator targetPackage="com.blogs.mydlogsdemo.service"
+                     targetProject="src\main\resources">
+      <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+    <!-- dao -->
+    <javaClientGenerator type="XMLMAPPER"
+                         targetPackage="com.blogs.mydlogsdemo.dao" targetProject="src\main\java">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+    <table schema="general" tableName="login" domainObjectName="RealNameAuthentication"
+           enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false"
+           enableSelectByExample="false" selectByExampleQueryId="false">
+      <property name="useActualColumnNames" value="true"/>
+    </table>
+  </context>
+</generatorConfiguration>
